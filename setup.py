@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='''ckanext-cob_theme''',
+    name='''ckanext-urbalurba_theme''',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -21,11 +21,11 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/Ontodia/ckanext-cob_theme',
+    url='https://github.com/terchris/ckanext-urbalurba_theme',
 
     # Author details
-    author='''Jay Guo''',
-    author_email='''jguo@opengov.com''',
+    author='''Terje Christensen''',
+    author_email='''terje@christensen.no''',
 
     # Choose your license
     license='AGPL',
@@ -80,7 +80,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        cob_theme=ckanext.cob_theme.plugin:Cob_ThemePlugin
+        urbalurba_theme=ckanext.urbalurba_theme.plugin:Urbalurba_ThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

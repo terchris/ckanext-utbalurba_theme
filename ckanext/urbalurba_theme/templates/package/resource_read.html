@@ -48,7 +48,7 @@
 {% if res.url and h.is_url(res.url) %}
   <li>
     <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
-      {% if not h.cob_theme_is_resource_data_format_downloadable(res.format) %}
+      {% if not h.urbalurba_theme_is_resource_data_format_downloadable(res.format) %}
         <i class="icon-eye-open"></i> {{ _('View') }}
       {% else %}
         <i class="icon-download"></i> {{ _('Download') }}

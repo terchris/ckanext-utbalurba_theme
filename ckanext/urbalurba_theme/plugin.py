@@ -43,7 +43,7 @@ def showcases(num=24):
         showcases = toolkit.get_action('ckanext_showcase_list')({},{})
         sorted_showcases = sorted(showcases, key=lambda k: k.get('metadata_modified'), reverse=True)
     except:
-        print "[cob_theme] Error in retrieving list of showcases"
+        print "[urbalurba_theme] Error in retrieving list of showcases"
     return sorted_showcases[:num]
 
 
@@ -79,7 +79,7 @@ def is_resource_data_format_downloadable(resourceDataFormat):
     return True
 
 
-class Cob_ThemePlugin(plugins.SingletonPlugin):
+class Urbalurba_ThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IFacets)
@@ -87,20 +87,20 @@ class Cob_ThemePlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'cob_theme')
+        toolkit.add_resource('fanstatic', 'urbalurba_theme')
     
     def get_helpers(self):
-        """Register cob_theme_* helper functions"""
+        """Register urbalurba_theme_* helper functions"""
         
-        return {'cob_theme_recent_datasets': recent_datasets,
-                'cob_theme_popular_datasets': popular_datasets,
-                'cob_theme_dataset_count': dataset_count,
-                'cob_theme_get_groups': groups,
-                'cob_theme_get_showcases': showcases,
-                'cob_theme_get_package_metadata': get_package_metadata,
-                'cob_theme_is_facet_active':is_facet_active,
-                'cob_theme_abbr_name': abbr_name,
-                'cob_theme_is_resource_data_format_downloadable': is_resource_data_format_downloadable,
+        return {'urbalurba_theme_recent_datasets': recent_datasets,
+                'urbalurba_theme_popular_datasets': popular_datasets,
+                'urbalurba_theme_dataset_count': dataset_count,
+                'urbalurba_theme_get_groups': groups,
+                'urbalurba_theme_get_showcases': showcases,
+                'urbalurba_theme_get_package_metadata': get_package_metadata,
+                'urbalurba_theme_is_facet_active':is_facet_active,
+                'urbalurba_theme_abbr_name': abbr_name,
+                'urbalurba_theme_is_resource_data_format_downloadable': is_resource_data_format_downloadable,
                }
 
     def dataset_facets(self, facets_dict, package_type):

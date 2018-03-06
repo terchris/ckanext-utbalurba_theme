@@ -1,6 +1,6 @@
 
         [ckan.plugins]
-        cob_theme=ckanext.cob_theme.plugin:Cob_ThemePlugin
+        urbalurba_theme=ckanext.urbalurba_theme.plugin:Urbalurba_ThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

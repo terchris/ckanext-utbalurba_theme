@@ -1,4 +1,4 @@
-{% set popular_datasets = h.cob_theme_popular_datasets() %}
+{% set popular_datasets = h.urbalurba_theme_popular_datasets() %}
 {% set num_topics = h.discourse_sync() %}
 
   <div class="module-content box">
@@ -24,7 +24,7 @@
                   </div>
                   <div class="text-wrapper">
                     <h3 class="dataset-heading">{{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}</h3>
-                    {% set curr_package = h.cob_theme_get_package_metadata(package) %}
+                    {% set curr_package = h.urbalurba_theme_get_package_metadata(package) %}
                     <div class="package-item-extra">{{curr_package.tracking_summary.recent}} recent views</div>
                     {% if curr_package.resources %}
                       <ul class="dataset-resources unstyled">

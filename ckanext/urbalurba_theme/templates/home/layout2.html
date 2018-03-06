@@ -20,7 +20,7 @@
           {% if intro %}
             {{ h.render_markdown(intro) }}
           {% endif %}
-            Get started by searching from <b>{{ h.cob_theme_dataset_count() }}</b> datasets
+            Get started by searching from <b>{{ h.urbalurba_theme_dataset_count() }}</b> datasets
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
 </div>
 #}
 <div>
-  {% if h.cob_theme_get_showcases() %}
+  {% if h.urbalurba_theme_get_showcases() %}
   <div class="main-featured">
     <div class="container">
       <div class="row">
@@ -48,14 +48,14 @@
           <div class="module-content box">
             <h2 class="heading"><a href="/showcase">Showcases</a></h2>
             <span class="heading-explanation">See what our users are doing with open data. </span>		
-            {% snippet 'home/snippets/showcase_list.html', showcases=h.cob_theme_get_showcases() %}
+            {% snippet 'home/snippets/showcase_list.html', showcases=h.urbalurba_theme_get_showcases() %}
           </div>
         </div>
       </div>
     </div>
   </div>
   {% endif %}
-  {% if h.cob_theme_get_groups() %}
+  {% if h.urbalurba_theme_get_groups() %}
   <div class="main-browse">
     <div class="container">
       <div class="row">
@@ -67,7 +67,7 @@
                 As datasets are published, they are tagged with categories so you can learn about popular topics. Explore them below.
               </span>
             </div>
-             {% for group in h.cob_theme_get_groups(8) %}
+             {% for group in h.urbalurba_theme_get_groups(8) %}
               {% if group.package_count > 0 %}
                 <a href="/group/{{ group.name }}" class="browse-group">
                   <img class="browse-group-image" class="homepage-group-images" src="{{ group.image_display_url or '/base/images/placeholder-group.png' }}">
