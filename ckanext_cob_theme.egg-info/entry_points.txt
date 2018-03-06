@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        cob_theme=ckanext.cob_theme.plugin:Cob_ThemePlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    

@@ -1,0 +1,11 @@
+{% set latest_datasets = h.cob_theme_recent_datasets() %}
+
+  <div class="module-content box">
+      <header>
+          <h2 class="heading">Nye datasett</h2>
+          <span class="heading-explanation">Se de nyeste datasettene under. Du kan se nye eller nylig oppdaterte datasett under. Klikke på dem for detaljer. </span>
+      </header>
+      <section id="recent-list">
+          {% snippet 'home/snippets/package_list.html', packages=latest_datasets %}
+      </section>
+  </div>

@@ -1,0 +1,54 @@
+{% ckan_extends %}
+
+  {% block resource_item_title %}
+    {% if res.name_translated %}
+      <a class="heading" href="{{ url }}" title="{{ h.scheming_language_text(res.name_translated) }}">
+      {{ h.scheming_language_text(res.name_translated) | truncate(75) }}<span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
+    {% else %}
+      <a class="heading" href="{{ url }}" title="{{ res.name or res.description }}">
+      {{ h.resource_display_name(res) | truncate(75) }}<span class="format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
+    {% endif %}
+    {{ h.popular('views', res.tracking_summary.total, min=10) }}
+  </a>
+  {% endblock %}
+  
+  {% block resource_item_description %}
+    <p class="description">
+      {% if res.description_translated %}
+        {{ h.markdown_extract(h.scheming_language_text(res.description_translated), extract_length=100) }}
+      {% elif res.description %}
+        {{ h.markdown_extract(res.description, extract_length=100) }}
+      {% endif %}
+    </p>
+  {% endblock %}
+
+  {% block resource_item_explore %}
+    {% if not url_is_edit %}
+      <div class="btn-group">
+        {% block resource_item_explore_links %}
+          <a href="{{ url }}" class="btn">
+            {% if res.has_views %}
+              <i class="icon-bar-chart"></i>
+              {{ _('Preview') }}
+            {% else %}
+              <i class="icon-info-sign"></i>
+              {{ _('More Info') }}
+            {% endif %}
+          </a>
+          {% if res.url and h.is_url(res.url) %}
+            <a href="{{ res.url }}" class="btn btn-primary" target="_blank">
+              {% if not h.cob_theme_is_resource_data_format_downloadable(res.format) %}
+                <i class="icon-external-link"></i>{{ _('Go to resource') }}
+              {% else %}
+                <i class="icon-download"></i> {{ _('Download') }}
+              {% endif %}
+            </a>
+          {% elif res.url_type == 'datastore' %}
+            <a class="btn btn-primary" href="{{ res.url }}" target="_blank">
+              <i class="icon-download"></i> {{ _('Download') }}
+            </a>
+          {% endif %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  {% endblock %}
